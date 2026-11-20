@@ -48,7 +48,8 @@ public class SkipSSLCheckSocketFactory extends SocketFactory {
                 }};
 
         try {
-            final SSLContext context = SSLContext.getInstance("SSL");
+            // @rezliant RZ-1244625E · 2026-11-20 — Replaced deprecated SSL protocol with TLSv1.2 for cryptographic security
+            final SSLContext context = SSLContext.getInstance("TLSv1.2");
             context.init(null, noOpTrustManagers, new SecureRandom());
             skipSSLCheckFactory = context.getSocketFactory();
         } catch (GeneralSecurityException e) {
