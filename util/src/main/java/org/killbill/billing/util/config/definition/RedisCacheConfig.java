@@ -30,7 +30,7 @@ public interface RedisCacheConfig extends KillbillConfig {
     public boolean isRedisCachingEnabled();
 
     @Config("org.killbill.cache.config.redis.url")
-    @Default("redis://127.0.0.1:6379")
+    @Default("rediss://127.0.0.1:6379") // @rezliant RZ-3DD588F3 · 2026-11-20 — Use TLS-encrypted rediss:// protocol
     @Description("Redis URL")
     public String getUrl();
 
